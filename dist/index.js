@@ -1585,7 +1585,7 @@ function run() {
         try {
             const version = core.getInput("version");
             core.exportVariable("NXF_VER", version);
-            yield exec.exec("wget -qO- get.nextflow.io | bash");
+            yield exec.exec("curl -s https://get.nextflow.io | bash ");
             yield exec.exec("sudo mv nextflow /usr/local/bin/");
         }
         catch (error) {
