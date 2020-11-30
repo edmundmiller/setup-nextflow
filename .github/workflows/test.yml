@@ -2,24 +2,27 @@ name: "units-test"
 on:
   pull_request:
   push:
+    paths-ignore:
+      - "**.md"
+      - "**.org"
+      - ".dir-locals.el"
     branches:
-      - main
-      - 'releases/*'
+      - master
 
 jobs:
   # unit tests
   units:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - run: npm ci
-    - run: npm test
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm test
 
   # test action works running from the graph
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: ./
-      with:
-        milliseconds: 1000
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          version: "20.07.1"
