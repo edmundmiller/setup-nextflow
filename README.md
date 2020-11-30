@@ -13,7 +13,7 @@ Heavily influenced by [setup-emacs](https://github.com/purcell/setup-emacs)
 ```yaml
 uses: emiller88/setup-nextflow@master
 with:
-  version: 24.5
+  version: "20.07.1"
 ```
 
 The `nextflow` executable on the path will then be the requested
